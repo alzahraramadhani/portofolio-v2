@@ -1,4 +1,6 @@
 import React from "react";
+import fs from "fs";
+import path from "path";
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { homeProfileTechStack, aboutTechCategories } from "@/data/tech-stack";
@@ -66,7 +68,15 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
       expect(screen.getByText(techName)).toBeTruthy();
     }
 
-    // Verify Figma Profile Card diagonal gradient (.profile-card-gradient), rounded-[28px], and #C4E7FF/10 Overlay+Blur accents
+    // Verify Figma Profile Card diagonal gradient (.profile-card-gradient) with 62% center-right highlight, rounded-[28px], and #C4E7FF/10 Overlay+Blur accents
+    const globalsCss = fs.readFileSync(
+      path.resolve(__dirname, "../app/globals.css"),
+      "utf-8"
+    );
+    expect(globalsCss).toContain("#131315 36%");
+    expect(globalsCss).toContain("#25272e 62%");
+    expect(globalsCss).toContain("#131315 90%");
+
     expect(container.querySelector(".profile-card-gradient")).toBeTruthy();
     expect(container.querySelector(".rounded-\\[28px\\]")).toBeTruthy();
     expect(
