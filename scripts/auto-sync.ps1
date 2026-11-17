@@ -1,4 +1,4 @@
-﻿# Auto-Sync PowerShell Script for Zahra Portfolio V2
+# Auto-Sync PowerShell Script for Zahra Portfolio V2
 # Usage: .\scripts\auto-sync.ps1
 
 Write-Host "========================================================" -ForegroundColor Cyan

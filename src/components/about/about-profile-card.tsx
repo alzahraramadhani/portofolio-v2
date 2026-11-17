@@ -10,19 +10,29 @@ export function AboutProfileCard() {
   return (
     <section
       aria-label="About Al Zahra Ramadhani"
-      className="relative mx-auto max-w-[920px] px-5 sm:px-8 pt-10 pb-16"
+      className="relative mx-auto max-w-[960px] px-5 sm:px-8 pt-10 pb-16"
     >
-      {/* Top Indigo Ambient Glow matching About Page.jpg */}
+      {/* Curved Blue Horizon glow behind the top border of the Profile Card (matching About Page Figma) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-6 left-1/2 -z-10 h-44 w-[75%] -translate-x-1/2 rounded-full bg-[#5B5FC7]/35 blur-[65px]"
+        className="pointer-events-none absolute -top-4 left-1/2 -z-10 h-36 w-[74%] -translate-x-1/2 rounded-full bg-[#5860C8]/40 blur-[55px]"
       />
 
-      <div className="relative overflow-hidden rounded-[24px] border border-white/[0.08] bg-gradient-to-b from-[#1C1C24]/95 to-[#161619]/95 p-6 sm:p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.65)] backdrop-blur-xl">
-        {/* Top border highlight */}
+      {/* Left & Right Overlay+Blur accents flanking the Profile Card (Figma: W 600, H 500, #C4E7FF 10%) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-[340px] top-16 -z-10 h-[500px] w-[600px] rounded-full bg-[#C4E7FF]/[0.10] blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[340px] top-4 -z-10 h-[500px] w-[600px] rounded-full bg-[#C4E7FF]/[0.10] blur-[120px]"
+      />
+
+      <div className="profile-card-gradient relative mx-auto max-w-[896px] overflow-hidden rounded-[16px] border border-white/[0.08] p-6 sm:p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+        {/* Horizontal Divider — Top edge highlight matching Figma */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-[#9EA0CD]/50 to-transparent"
+          className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-[#A5B4FC]/55 to-transparent"
         />
 
         <div className="flex flex-col items-center gap-7 md:flex-row md:items-start md:gap-9">

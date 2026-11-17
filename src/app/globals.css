@@ -47,3 +47,19 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #3b3b48;
 }
+
+/* Figma Profile Card Diagonal Linear Gradient:
+   0% -> #131315 (100%)
+   52% -> #131315 (100%)
+   75% -> #25272E (100%)
+   100% -> #131315 (100%)
+*/
+.profile-card-gradient {
+  background: linear-gradient(
+    120deg,
+    #131315 0%,
+    #131315 52%,
+    #25272e 75%,
+    #131315 100%
+  );
+}

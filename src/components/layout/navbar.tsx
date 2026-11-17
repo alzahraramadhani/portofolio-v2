@@ -124,7 +124,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full pt-4 pb-3 transition-all">
+    <header className="sticky top-0 z-50 w-full bg-gradient-to-b from-[#131315]/95 via-[#131315]/70 to-transparent pt-4 pb-3 backdrop-blur-[2px] transition-all">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 sm:px-8">
         {/* Left: Brand Logo */}
         <Link

@@ -61,17 +61,30 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     expect(homeProfileTechStack).toHaveLength(18);
     expect(homeProfileTechStack.map((t) => t.name)).toEqual(expectedTech);
 
-    render(<HomeProfileCard />);
+    const { container } = render(<HomeProfileCard />);
     for (const techName of expectedTech) {
       expect(screen.getByText(techName)).toBeTruthy();
     }
+
+    // Verify Figma Profile Card diagonal gradient (.profile-card-gradient), rounded-[16px], and #C4E7FF/10 Overlay+Blur accents
+    expect(container.querySelector(".profile-card-gradient")).toBeTruthy();
+    expect(container.querySelector(".rounded-\\[16px\\]")).toBeTruthy();
+    expect(
+      container.querySelectorAll(".bg-\\[\\#C4E7FF\\]\\/\\[0\\.10\\]").length
+    ).toBeGreaterThanOrEqual(2);
 
     const viewMoreLink = screen.getByRole("link", { name: /view more/i });
     expect(viewMoreLink.getAttribute("href")).toBe("/about");
   });
 
   it("renders AboutProfileCard with 2 bio paragraphs and exact social media URLs + /#contact email link", () => {
-    render(<AboutProfileCard />);
+    const { container } = render(<AboutProfileCard />);
+
+    expect(container.querySelector(".profile-card-gradient")).toBeTruthy();
+    expect(container.querySelector(".rounded-\\[16px\\]")).toBeTruthy();
+    expect(
+      container.querySelectorAll(".bg-\\[\\#C4E7FF\\]\\/\\[0\\.10\\]").length
+    ).toBeGreaterThanOrEqual(2);
 
     expect(siteConfig.aboutBioParagraphs).toHaveLength(2);
     expect(
@@ -296,6 +309,10 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
 
     // Must not use font-mono anywhere (entire website uses Inter)
     expect(container.querySelector(".font-mono")).toBeNull();
+
+    // Every contribution cell button (52 * 7 = 364) must be an exact 1:1 square (.aspect-square)
+    const squareButtons = container.querySelectorAll("button.aspect-square");
+    expect(squareButtons.length).toBe(364);
 
     expect(screen.getByText("GitHub Contribution Activity")).toBeTruthy();
     expect(screen.getByText("personal-porto")).toBeTruthy();

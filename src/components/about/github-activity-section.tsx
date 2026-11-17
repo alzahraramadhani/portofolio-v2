@@ -74,20 +74,20 @@ export function GitHubActivitySection({ data }: GitHubActivitySectionProps) {
               ))}
             </div>
 
-            <div className="flex items-start gap-2">
-              {/* Day of Week Labels (7 rows aligned 1:1 with the 7 day squares per week) */}
-              <div className="flex flex-col gap-[4px] pr-1 text-[10px] font-medium leading-[12px] text-zinc-400">
+            <div className="flex items-stretch gap-2">
+              {/* Day of Week Labels (7 rows aligned 1:1 with the 7 aspect-square day cells per week) */}
+              <div className="grid grid-rows-7 gap-[4px] self-stretch pr-1.5 text-[10px] font-medium leading-none text-zinc-400">
                 {DAY_ROW_LABELS.map((label, idx) => (
                   <span
                     key={idx}
-                    className="flex h-[12px] items-center"
+                    className="flex items-center"
                   >
                     {label}
                   </span>
                 ))}
               </div>
 
-              {/* 52 Weeks Grid */}
+              {/* 52 Weeks Grid — Exact 1:1 Squares (aspect-square) */}
               <div
                 className="grid flex-1 gap-[4px]"
                 style={{
@@ -95,7 +95,7 @@ export function GitHubActivitySection({ data }: GitHubActivitySectionProps) {
                 }}
               >
                 {data.weeks.slice(-52).map((week, wIdx) => (
-                  <div key={wIdx} className="flex flex-col gap-[4px]">
+                  <div key={wIdx} className="grid grid-rows-7 gap-[4px]">
                     {week.contributionDays.slice(0, 7).map((day) => (
                       <button
                         key={day.date}
@@ -116,7 +116,7 @@ export function GitHubActivitySection({ data }: GitHubActivitySectionProps) {
                         onBlur={() => setHoveredDay(null)}
                         aria-label={`${day.contributionCount} contributions on ${day.date}`}
                         className={cn(
-                          "h-[12px] w-full min-w-[10px] rounded-[3px] transition-transform duration-150 hover:scale-125 focus:outline-none",
+                          "aspect-square w-full rounded-[3px] transition-transform duration-150 hover:scale-125 focus:outline-none",
                           LEVEL_COLOR_CLASSES[day.level]
                         )}
                       />
@@ -150,7 +150,7 @@ export function GitHubActivitySection({ data }: GitHubActivitySectionProps) {
               <span
                 key={lvl}
                 className={cn(
-                  "inline-block h-2.5 w-2.5 rounded-[2px]",
+                  "inline-block aspect-square h-3 w-3 rounded-[2.5px]",
                   LEVEL_COLOR_CLASSES[lvl]
                 )}
               />
