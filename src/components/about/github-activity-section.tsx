@@ -48,7 +48,7 @@ export function GitHubActivitySection({ data }: GitHubActivitySectionProps) {
   } | null>(null);
 
   return (
-    <section className="mx-auto max-w-[1120px] px-5 sm:px-8 py-8">
+    <section className="mx-auto max-w-[1120px] px-5 sm:px-8 py-6">
       <div className="rounded-[24px] border border-white/[0.07] bg-[#18181C] p-6 sm:p-8 md:p-10">
         {/* Header */}
         <div>

@@ -11,7 +11,7 @@ const CATEGORY_ICONS = {
 
 export function TechStackCategories() {
   return (
-    <section className="mx-auto max-w-[1120px] px-5 sm:px-8 py-12">
+    <section className="mx-auto max-w-[1120px] px-5 sm:px-8 pt-10 pb-6">
       <div>
         <h2 className="text-2xl sm:text-[34px] font-bold tracking-tight text-white">
           Tech Stack &amp; Tools

@@ -117,14 +117,14 @@ export function ContactSection() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-white/[0.07] bg-[#161619] p-5 sm:p-6"
+            className="lg:col-span-5 flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-[#161619] p-5 sm:p-6"
           >
-            <div className="space-y-4">
+            <div className="flex flex-1 flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="mb-1.5 block text-[11px] font-semibold text-zinc-300"
+                    className="mb-2 block text-xs sm:text-[13px] font-semibold text-zinc-200"
                   >
                     Name
                   </label>
@@ -137,10 +137,10 @@ export function ContactSection() {
                     onChange={(e) =>
                       setFormData((prev) => ({ ...prev, name: e.target.value }))
                     }
-                    className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-xs text-white placeholder:text-zinc-600 focus:border-[#8E8FBB]/60 focus:outline-none"
+                    className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-[13px] text-white placeholder:text-zinc-500 focus:border-[#8E8FBB]/60 focus:outline-none"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-[11px] text-red-400">
+                    <p className="mt-1 text-xs text-red-400">
                       {errors.name}
                     </p>
                   )}
@@ -149,7 +149,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="mb-1.5 block text-[11px] font-semibold text-zinc-300"
+                    className="mb-2 block text-xs sm:text-[13px] font-semibold text-zinc-200"
                   >
                     Email Address
                   </label>
@@ -165,10 +165,10 @@ export function ContactSection() {
                         email: e.target.value,
                       }))
                     }
-                    className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-xs text-white placeholder:text-zinc-600 focus:border-[#8E8FBB]/60 focus:outline-none"
+                    className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-[13px] text-white placeholder:text-zinc-500 focus:border-[#8E8FBB]/60 focus:outline-none"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-[11px] text-red-400">
+                    <p className="mt-1 text-xs text-red-400">
                       {errors.email}
                     </p>
                   )}
@@ -178,7 +178,7 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="contact-subject"
-                  className="mb-1.5 block text-[11px] font-semibold text-zinc-300"
+                  className="mb-2 block text-xs sm:text-[13px] font-semibold text-zinc-200"
                 >
                   Project title or Role Subject
                 </label>
@@ -194,26 +194,26 @@ export function ContactSection() {
                       subject: e.target.value,
                     }))
                   }
-                  className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-xs text-white placeholder:text-zinc-600 focus:border-[#8E8FBB]/60 focus:outline-none"
+                  className="w-full rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-[13px] text-white placeholder:text-zinc-500 focus:border-[#8E8FBB]/60 focus:outline-none"
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-[11px] text-red-400">
+                  <p className="mt-1 text-xs text-red-400">
                     {errors.subject}
                   </p>
                 )}
               </div>
 
-              <div>
+              <div className="flex flex-1 flex-col">
                 <label
                   htmlFor="contact-message"
-                  className="mb-1.5 block text-[11px] font-semibold text-zinc-300"
+                  className="mb-2 block text-xs sm:text-[13px] font-semibold text-zinc-200"
                 >
                   Project Details &amp; Message
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
-                  rows={4}
+                  rows={6}
                   placeholder="Your message"
                   value={formData.message}
                   onChange={(e) =>
@@ -222,10 +222,10 @@ export function ContactSection() {
                       message: e.target.value,
                     }))
                   }
-                  className="w-full resize-none rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-2.5 text-xs text-white placeholder:text-zinc-600 focus:border-[#8E8FBB]/60 focus:outline-none"
+                  className="w-full flex-1 min-h-[160px] resize-none rounded-xl border border-white/[0.06] bg-[#101012] px-3.5 py-3 text-[13px] text-white placeholder:text-zinc-500 focus:border-[#8E8FBB]/60 focus:outline-none"
                 />
                 {errors.message && (
-                  <p className="mt-1 text-[11px] text-red-400">
+                  <p className="mt-1 text-xs text-red-400">
                     {errors.message}
                   </p>
                 )}
@@ -235,7 +235,7 @@ export function ContactSection() {
             <button
               type="submit"
               disabled={submitting}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs sm:text-[13px] font-semibold text-zinc-950 transition-all hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs sm:text-[13px] font-semibold text-zinc-950 transition-all hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? (
                 <>

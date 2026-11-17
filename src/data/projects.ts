@@ -1,7 +1,7 @@
 import { ProjectItem } from "@/types/portfolio";
 
 export const projectsList: ProjectItem[] = [
-  // Page 1 (First 4 are Featured on Home Page; all 6 match Project Page.jpg)
+  // Page 1 (First 6 are Featured 3x2 on Home Page; all 6 match Project Page.jpg)
   {
     id: "proj-1",
     slug: "orbitui-design-architecture",
@@ -65,7 +65,7 @@ export const projectsList: ProjectItem[] = [
       "Comprehensive mobile banking and personal expense tracker design system with interactive micro-interaction states.",
     techTags: ["Figma", "UI/UX", "Design Tokens"],
     projectUrl: "#",
-    featured: false,
+    featured: true,
   },
   {
     id: "proj-6",
@@ -78,7 +78,7 @@ export const projectsList: ProjectItem[] = [
       "Academic scheduling and student collaboration platform engineered with role-based access control and real-time notifications.",
     techTags: ["Laravel", "PHP", "PostgreSQL"],
     projectUrl: "#",
-    featured: false,
+    featured: true,
   },
 
   // Page 2 Dummy Projects (for interactive pagination & category filtering)

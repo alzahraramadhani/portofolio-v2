@@ -66,9 +66,9 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
       expect(screen.getByText(techName)).toBeTruthy();
     }
 
-    // Verify Figma Profile Card diagonal gradient (.profile-card-gradient), rounded-[16px], and #C4E7FF/10 Overlay+Blur accents
+    // Verify Figma Profile Card diagonal gradient (.profile-card-gradient), rounded-[28px], and #C4E7FF/10 Overlay+Blur accents
     expect(container.querySelector(".profile-card-gradient")).toBeTruthy();
-    expect(container.querySelector(".rounded-\\[16px\\]")).toBeTruthy();
+    expect(container.querySelector(".rounded-\\[28px\\]")).toBeTruthy();
     expect(
       container.querySelectorAll(".bg-\\[\\#C4E7FF\\]\\/\\[0\\.10\\]").length
     ).toBeGreaterThanOrEqual(2);
@@ -81,7 +81,7 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     const { container } = render(<AboutProfileCard />);
 
     expect(container.querySelector(".profile-card-gradient")).toBeTruthy();
-    expect(container.querySelector(".rounded-\\[16px\\]")).toBeTruthy();
+    expect(container.querySelector(".rounded-\\[28px\\]")).toBeTruthy();
     expect(
       container.querySelectorAll(".bg-\\[\\#C4E7FF\\]\\/\\[0\\.10\\]").length
     ).toBeGreaterThanOrEqual(2);
@@ -121,8 +121,12 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     expect(totalCategorized).toBeGreaterThanOrEqual(18);
   });
 
-  it("renders FeaturedProjectsSection with white thumbnail placeholders, unique category-accurate projects, and View More -> /projects", () => {
+  it("renders FeaturedProjectsSection as 3x2 grid (6 cards), white placeholders, unique category-accurate projects, and View More -> /projects", () => {
     const { container } = render(<FeaturedProjectsSection />);
+
+    // Verify 3x2 grid (lg:grid-cols-3) and 6 featured projects shown initially
+    expect(container.querySelector(".lg\\:grid-cols-3")).toBeTruthy();
+    expect(screen.getAllByRole("article")).toHaveLength(6);
 
     // Verify all 15 projects in projectsList have unique titles and slugs
     const uniqueTitles = new Set(projectsList.map((p) => p.title));
@@ -132,7 +136,7 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
 
     // Verify white box placeholders (#FFFFFF / bg-white)
     const whitePlaceholders = container.querySelectorAll(".bg-white");
-    expect(whitePlaceholders.length).toBeGreaterThanOrEqual(4);
+    expect(whitePlaceholders.length).toBeGreaterThanOrEqual(6);
 
     // Filter by Mobile — must show mobile projects and NOT static site generator
     const mobileTab = screen.getByRole("tab", { name: "Mobile" });
@@ -183,9 +187,13 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     expect(screen.queryByRole("dialog")).toBeNull();
   });
 
-  it("paginates ProjectsCatalog (6 per page) and resets page to 1 when category filter changes", () => {
+  it("paginates ProjectsCatalog (6 per page, 2-column grid) and resets page to 1 when category filter changes", () => {
     window.scrollTo = vi.fn();
-    render(<ProjectsCatalog />);
+    const { container } = render(<ProjectsCatalog />);
+
+    // Must remain 2-column grid (md:grid-cols-2, not lg:grid-cols-3)
+    expect(container.querySelector(".md\\:grid-cols-2")).toBeTruthy();
+    expect(container.querySelector(".lg\\:grid-cols-3")).toBeNull();
 
     // Page 1 shows 6 project cards
     expect(screen.getAllByRole("article")).toHaveLength(6);
@@ -261,11 +269,15 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     delete process.env.WEB3FORMS_ACCESS_KEY;
   });
 
-  it("renders ContactSection with UTC+7 (WIB) Available status badge, social links, and Malang location", () => {
-    render(<ContactSection />);
+  it("renders ContactSection with larger labels, flex-1 textarea, UTC+7 (WIB) Available status badge, social links, and Malang location", () => {
+    const { container } = render(<ContactSection />);
     expect(screen.getByText("UTC+7 (WIB) Available")).toBeTruthy();
     expect(screen.getByText("Malang, Jawa Timur, Indonesia")).toBeTruthy();
     expect(screen.getByText("alzahra.workhub@gmail.com")).toBeTruthy();
+
+    const messageBox = screen.getByLabelText("Project Details & Message");
+    expect(messageBox.className).toContain("flex-1");
+    expect(container.querySelectorAll("label.text-xs").length).toBe(4);
   });
 
   it("renders GitHubActivitySection heatmap with 7-day columns, Inter font (no font-mono), and pinned repositories", () => {
@@ -343,9 +355,12 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     delete process.env.GITHUB_TOKEN;
   });
 
-  it("handles same-page smooth scrolling in Navbar for Home, Experiences, and Let's Talk", () => {
+  it("handles same-page smooth scrolling in Navbar and omits the Sun light-theme icon", () => {
     window.scrollTo = vi.fn();
-    render(<Navbar />);
+    const { container } = render(<Navbar />);
+
+    // Light theme toggle / Sun icon must be removed
+    expect(container.querySelector('[title="Pure Dark Mode"]')).toBeNull();
 
     const homeLinks = screen.getAllByRole("link", { name: /home/i });
     fireEvent.click(homeLinks[0]);

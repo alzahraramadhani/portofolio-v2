@@ -9,7 +9,6 @@ import {
   Briefcase,
   TrendingUp,
   MessageSquare,
-  Sun,
   Menu,
   X,
 } from "lucide-react";
@@ -168,16 +167,8 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right: Aesthetic Dark Mode Badge + Let's Talk CTA */}
+        {/* Right: Let's Talk CTA + Mobile Menu Toggle */}
         <div className="flex items-center gap-2.5">
-          <div
-            aria-hidden="true"
-            title="Pure Dark Mode"
-            className="hidden sm:flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-[#17171B] text-zinc-400"
-          >
-            <Sun className="h-4 w-4" />
-          </div>
-
           <Link
             href="/#contact"
             onClick={(e) => handleNavClick(e, "contact")}

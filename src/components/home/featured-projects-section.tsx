@@ -22,11 +22,11 @@ export function FeaturedProjectsSection() {
 
   const displayedProjects = useMemo(() => {
     if (activeFilter === "all") {
-      return projectsList.filter((p) => p.featured).slice(0, 4);
+      return projectsList.filter((p) => p.featured).slice(0, 6);
     }
     return projectsList
       .filter((p) => p.category === activeFilter)
-      .slice(0, 4);
+      .slice(0, 6);
   }, [activeFilter]);
 
   return (
@@ -74,10 +74,10 @@ export function FeaturedProjectsSection() {
         </div>
       </div>
 
-      {/* 2x2 Project Cards Grid */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {/* 3x2 Project Cards Grid on Home Desktop */}
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {displayedProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} compact />
         ))}
       </div>
 

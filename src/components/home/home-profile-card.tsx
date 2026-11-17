@@ -28,7 +28,7 @@ export function HomeProfileCard() {
         className="pointer-events-none absolute -right-[340px] -top-6 -z-10 h-[500px] w-[600px] rounded-full bg-[#C4E7FF]/[0.10] blur-[120px]"
       />
 
-      <div className="profile-card-gradient relative mx-auto max-w-[896px] overflow-hidden rounded-[16px] border border-white/[0.08] p-6 sm:p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75)] backdrop-blur-xl">
+      <div className="profile-card-gradient relative mx-auto max-w-[896px] overflow-hidden rounded-[28px] border border-white/[0.08] p-6 sm:p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.75)] backdrop-blur-xl">
         {/* Horizontal Divider — Top edge highlight matching Figma */}
         <div
           aria-hidden="true"
