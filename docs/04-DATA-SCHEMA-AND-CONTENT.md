@@ -171,24 +171,14 @@ Seluruh **18 item** di bawah ini **tampil pada Profile Card di Home Page**, seka
    - Periode: `Dec 2023 – July 2024`
    - Badge: `Part Time`
    - Deskripsi: *"Creating visual designs and producing engaging video content to enhance audience interaction and brand presence."*
-4. **Frontend Developer Intern (Dummy 1 — Siap Direvisi)**
-   - Perusahaan / Mitra: `Tech Nova Studio · Malang`
-   - Periode: `Agt 2024 – Nov 2024`
+   - Tools: `["Figma", "Canva", "Alight Motion", "Capcut"]`
+4. **Digital Marketing & Video Editor**
+   - Perusahaan: `NBC Group · Durenan, Trenggalek`
+   - Periode: `Jun 2024 – Okt 2024`
    - Badge: `Internship`
-   - Deskripsi: *"Developed responsive client web portals and internal dashboards using Next.js, Tailwind CSS, and REST API integration with high accessibility standards."*
-   - Tools: `["Next.js", "TypeScript", "Tailwind CSS", "REST API"]`
-5. **Divisi Web & IT Development (Dummy 2 — Siap Direvisi)**
-   - Organisasi: `Informatics Student Association · UM`
-   - Periode: `Jan 2024 – Des 2024`
-   - Badge: `Organization`
-   - Deskripsi: *"Collaborated in managing campus competition landing pages, automated participant registration flows, and maintained web server availability."*
-   - Tools: `["React", "PHP", "Laravel", "PostgreSQL", "Git"]`
-6. **Mobile App Project Lead (Dummy 3 — Siap Direvisi)**
-   - Proyek / Kegiatan: `National Tech Hackathon 2024`
-   - Periode: `Mei 2024 – Jun 2024`
-   - Badge: `Milestone`
-   - Deskripsi: *"Led a team of 3 in conceptualizing and prototyping a Flutter-based smart waste management mobile app with Supabase real-time backend."*
-   - Tools: `["Flutter", "Dart", "Supabase", "Figma"]`
+   - Deskripsi: *"Editing promotional videos and publishing content across various social media platforms to expand audience reach."*
+   - Tools: `["Excel", "Alight Motion", "Capcut"]`
+   - Lampiran Foto: 2 gambar (Sertifikat PKL NBC Group & Foto Dokumentasi Kegiatan PKL).
 
 ---
 

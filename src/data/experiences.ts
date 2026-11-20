@@ -55,35 +55,29 @@ export const experiencesList: ExperienceItem[] = [
     organization: "PT. Loga Dante Koa Sejahtera · Bekasi",
     description:
       "Creating visual designs and producing engaging video content to enhance audience interaction and brand presence.",
+    tools: ["Figma", "Canva", "Alight Motion", "Capcut"],
   },
   {
-    id: "exp-dummy-1",
-    period: "Agt 2024 – Nov 2024",
+    id: "exp-nbc",
+    period: "Jun 2024 – Okt 2024",
     badgeType: "Internship",
-    role: "Frontend Developer Intern",
-    organization: "Tech Nova Studio · Malang",
+    role: "Digital Marketing & Video Editor",
+    organization: "NBC Group · Durenan, Trenggalek",
     description:
-      "Developed responsive client web portals and internal dashboards using Next.js, Tailwind CSS, and REST API integration with high accessibility standards.",
-    tools: ["Next.js", "TypeScript", "Tailwind CSS", "REST API"],
-  },
-  {
-    id: "exp-dummy-2",
-    period: "Jan 2024 – Des 2024",
-    badgeType: "Organization",
-    role: "Divisi Web & IT Development",
-    organization: "Informatics Student Association · UM",
-    description:
-      "Collaborated in managing campus competition landing pages, automated participant registration flows, and maintained web server availability.",
-    tools: ["React", "PHP", "Laravel", "PostgreSQL", "Git"],
-  },
-  {
-    id: "exp-dummy-3",
-    period: "Mei 2024 – Jun 2024",
-    badgeType: "Milestone",
-    role: "Mobile App Project Lead",
-    organization: "National Tech Hackathon 2024",
-    description:
-      "Led a team of 3 in conceptualizing and prototyping a Flutter-based smart waste management mobile app with Supabase real-time backend.",
-    tools: ["Flutter", "Dart", "Supabase", "Figma"],
+      "Editing promotional videos and publishing content across various social media platforms to expand audience reach.",
+    tools: ["Excel", "Alight Motion", "Capcut"],
+    mediaUrls: [
+      {
+        src: "/images/experiences/nbc-certificate.jpg",
+        alt: "Sertifikat Praktik Kerja Lapangan NBC Group Durenan SMKN 1 Bandung Tulungagung",
+        caption:
+          "Sertifikat Praktik Kerja Lapangan — NBC Group (Durenan, Trenggalek)",
+      },
+      {
+        src: "/images/experiences/nbc-documentation.jpg",
+        alt: "Dokumentasi Kegiatan Praktik Kerja Lapangan di NBC Group Durenan",
+        caption: "Dokumentasi Kegiatan Praktik Kerja Lapangan di NBC Group",
+      },
+    ],
   },
 ];

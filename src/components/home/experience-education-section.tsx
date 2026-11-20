@@ -103,12 +103,7 @@ export function ExperienceEducationSection() {
                 {/* Experience Card */}
                 <article className="rounded-2xl border border-white/[0.07] bg-[#18181C] p-5 sm:p-6 transition-all duration-200 hover:border-white/[0.15] hover:bg-[#1B1B20]">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span
-                      className={cn(
-                        "text-xs font-medium",
-                        exp.isCurrent ? "text-[#8E8FBB]" : "text-zinc-400"
-                      )}
-                    >
+                    <span className="text-xs font-medium text-[#8E8FBB]">
                       {exp.period}
                     </span>
 

@@ -166,7 +166,7 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     expect(viewMore.getAttribute("href")).toBe("/projects");
   });
 
-  it("renders ExperienceEducationSection without View More, sticky left column, 6 experiences, and Lightbox Modal", () => {
+  it("renders ExperienceEducationSection without View More, sticky left column, 4 real experiences with tools, #8E8FBB dates, and Lightbox Modal", () => {
     const { container } = render(<ExperienceEducationSection />);
 
     // Must NOT have a View More button
@@ -181,16 +181,58 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     expect(screen.getByText("Universitas Negeri Malang")).toBeTruthy();
     expect(screen.getByText("SMKN 1 Bandung Tulungagung")).toBeTruthy();
 
-    // All 6 experiences (3 from Figma + 3 dummy) exist
-    expect(experiencesList).toHaveLength(6);
+    // All 4 real experiences exist and the 3 old dummy items are removed
+    expect(experiencesList).toHaveLength(4);
     expect(screen.getByText("Google Student Ambassador")).toBeTruthy();
     expect(screen.getByText("Staff Muda - Kominfo")).toBeTruthy();
     expect(screen.getByText("Designer Grafis & Video Editor")).toBeTruthy();
+    expect(screen.getByText("Digital Marketing & Video Editor")).toBeTruthy();
+    expect(screen.getByText("NBC Group · Durenan, Trenggalek")).toBeTruthy();
+    expect(screen.queryByText("Frontend Developer Intern")).toBeNull();
+    expect(screen.queryByText("Divisi Web & IT Development")).toBeNull();
+    expect(screen.queryByText("Mobile App Project Lead")).toBeNull();
 
-    // Lightbox modal opens when clicking certificate thumbnail and closes on Escape
+    // Tool pills on Designer Grafis & Video Editor and Digital Marketing & Video Editor
+    expect(experiencesList[2].tools).toEqual([
+      "Figma",
+      "Canva",
+      "Alight Motion",
+      "Capcut",
+    ]);
+    expect(experiencesList[3].tools).toEqual([
+      "Excel",
+      "Alight Motion",
+      "Capcut",
+    ]);
+    expect(screen.getByText("Excel")).toBeTruthy();
+
+    // All 4 experience period labels use #8E8FBB
+    expect(container.querySelectorAll("span.text-\\[\\#8E8FBB\\]").length).toBe(
+      4
+    );
+
+    // NBC Group certificate & documentation assets exist on disk
+    expect(
+      fs.existsSync(
+        path.resolve(
+          __dirname,
+          "../../public/images/experiences/nbc-certificate.jpg"
+        )
+      )
+    ).toBe(true);
+    expect(
+      fs.existsSync(
+        path.resolve(
+          __dirname,
+          "../../public/images/experiences/nbc-documentation.jpg"
+        )
+      )
+    ).toBe(true);
+
+    // Lightbox modal opens when clicking any of the 4 certificate/documentation thumbnails and closes on Escape
     const zoomButtons = screen.getAllByRole("button", { name: /zoom image/i });
-    expect(zoomButtons.length).toBe(2);
-    fireEvent.click(zoomButtons[0]);
+    expect(zoomButtons.length).toBe(4);
+    fireEvent.click(zoomButtons[2]);
     expect(screen.getByRole("dialog")).toBeTruthy();
 
     fireEvent.keyDown(window, { key: "Escape" });
