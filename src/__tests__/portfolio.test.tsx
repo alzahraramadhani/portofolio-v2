@@ -14,6 +14,10 @@ import { FeaturedProjectsSection } from "@/components/home/featured-projects-sec
 import { ExperienceEducationSection } from "@/components/home/experience-education-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { ProjectsCatalog } from "@/components/projects/projects-catalog";
+import { ProjectDetailMedia } from "@/components/projects/project-detail-media";
+import ProjectDetailPage, {
+  generateStaticParams,
+} from "@/app/projects/[slug]/page";
 import { GitHubActivitySection } from "@/components/about/github-activity-section";
 import {
   generateFallbackWeeks,
@@ -25,6 +29,7 @@ import { POST } from "@/app/api/contact/route";
 // Mock next/navigation and next/image for component tests
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
+  notFound: vi.fn(),
 }));
 
 vi.mock("next/image", () => ({
@@ -147,6 +152,20 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
     // Verify white box placeholders (#FFFFFF / bg-white)
     const whitePlaceholders = container.querySelectorAll(".bg-white");
     expect(whitePlaceholders.length).toBeGreaterThanOrEqual(6);
+
+    // Verify both project title link and arrow link navigate to /projects/[slug]
+    const titleLink = screen.getByRole("link", {
+      name: "OrbitUI Design Architecture",
+    });
+    const arrowLink = screen.getByRole("link", {
+      name: "Open OrbitUI Design Architecture",
+    });
+    expect(titleLink.getAttribute("href")).toBe(
+      "/projects/orbitui-design-architecture"
+    );
+    expect(arrowLink.getAttribute("href")).toBe(
+      "/projects/orbitui-design-architecture"
+    );
 
     // Filter by Mobile — must show mobile projects and NOT static site generator
     const mobileTab = screen.getByRole("tab", { name: "Mobile" });
@@ -420,5 +439,83 @@ describe("Zahra Portfolio V2 — Specification & Component Verification", () => 
       top: 0,
       behavior: "smooth",
     });
+  });
+
+  it("renders ProjectDetailPage (/projects/[slug]) with wireframe sections, 3-col metadata, minimalist bullets, HiringCtaBanner, and gallery Lightbox", async () => {
+    const staticParams = generateStaticParams();
+    expect(staticParams).toHaveLength(15);
+
+    const ui = await ProjectDetailPage({
+      params: Promise.resolve({ slug: "orbitui-design-architecture" }),
+    });
+    const { container } = render(ui);
+
+    // Top Back link + Title + Description
+    const backLink = screen.getByRole("link", { name: /back to projects/i });
+    expect(backLink.getAttribute("href")).toBe("/projects");
+    expect(
+      screen.getByRole("heading", { name: "OrbitUI Design Architecture" })
+    ).toBeTruthy();
+
+    // White placeholder box (16:9)
+    expect(container.querySelector(".bg-white")).toBeTruthy();
+
+    // 3-Column Metadata Bar
+    expect(screen.getByText("TECHNOLOGIES")).toBeTruthy();
+    expect(screen.getByText("DETAILS")).toBeTruthy();
+    expect(screen.getByText("PROJECT LINKS")).toBeTruthy();
+    expect(
+      screen.getByRole("link", { name: /live demo for orbitui/i })
+    ).toBeTruthy();
+    expect(
+      screen.getByRole("link", { name: /source code for orbitui/i })
+    ).toBeTruthy();
+
+    // 3 Minimalist Stacked Cards (My Role, Features, Impact)
+    expect(screen.getByRole("heading", { name: "My Role" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Impact" })).toBeTruthy();
+    expect(container.querySelectorAll("ul li").length).toBeGreaterThanOrEqual(
+      9
+    );
+
+    // Bottom HiringCtaBanner before Footer
+    expect(
+      screen.getByText("Interested in collaborating or hiring?")
+    ).toBeTruthy();
+    const startConv = screen.getByRole("link", { name: /start conversation/i });
+    expect(startConv.getAttribute("href")).toBe("/#contact");
+
+    // Multi-photo gallery switcher + Lightbox Zoom Modal when photos are provided
+    render(
+      <ProjectDetailMedia
+        title="Sample Gallery Project"
+        galleryImages={[
+          {
+            src: "/images/experiences/nbc-certificate.jpg",
+            alt: "Project Screen 1",
+            caption: "Screen 1 Caption",
+          },
+          {
+            src: "/images/experiences/nbc-documentation.jpg",
+            alt: "Project Screen 2",
+            caption: "Screen 2 Caption",
+          },
+        ]}
+      />
+    );
+
+    const switchBtn = screen.getByRole("button", {
+      name: "Select project image 2",
+    });
+    fireEvent.click(switchBtn);
+    const zoomTrigger = screen.getByRole("button", {
+      name: "Zoom image: Project Screen 2",
+    });
+    fireEvent.click(zoomTrigger);
+    expect(screen.getByRole("dialog")).toBeTruthy();
+
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByRole("dialog")).toBeNull();
   });
 });

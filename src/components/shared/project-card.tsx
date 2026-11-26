@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ProjectItem } from "@/types/portfolio";
 import { cn } from "@/lib/utils";
@@ -12,14 +13,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, compact = false }: ProjectCardProps) {
-  const hasExternalUrl =
-    Boolean(project.projectUrl) && project.projectUrl !== "#";
-
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!hasExternalUrl) {
-      e.preventDefault();
-    }
-  };
+  const detailHref = `/projects/${project.slug}`;
 
   return (
     <article
@@ -66,14 +60,19 @@ export function ProjectCard({ project, compact = false }: ProjectCardProps) {
           </span>
         </div>
 
-        {/* Project Title */}
+        {/* Project Title (Navigates to Project Detail Page) */}
         <h3
           className={cn(
-            "mb-1.5 font-bold tracking-tight text-white transition-colors group-hover:text-white",
+            "mb-1.5 font-bold tracking-tight text-white transition-colors",
             compact ? "text-base sm:text-[17px]" : "mb-2 text-lg sm:text-[21px]"
           )}
         >
-          {project.title}
+          <Link
+            href={detailHref}
+            className="transition-colors hover:text-[#B4B6FF] focus:outline-none focus:underline"
+          >
+            {project.title}
+          </Link>
         </h3>
 
         {/* Description */}
@@ -87,7 +86,7 @@ export function ProjectCard({ project, compact = false }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* Bottom Row: Tech Tags + External Link Arrow */}
+      {/* Bottom Row: Tech Tags + Detail Page Arrow Link */}
       <div className="flex items-center justify-between gap-3 pt-1">
         <div className="flex flex-wrap items-center gap-1.5">
           {project.techTags.map((tag) => (
@@ -103,16 +102,13 @@ export function ProjectCard({ project, compact = false }: ProjectCardProps) {
           ))}
         </div>
 
-        <a
-          href={project.projectUrl || "#"}
-          target={hasExternalUrl ? "_blank" : undefined}
-          rel={hasExternalUrl ? "noopener noreferrer" : undefined}
-          onClick={handleLinkClick}
+        <Link
+          href={detailHref}
           aria-label={`Open ${project.title}`}
           className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
         >
           <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+        </Link>
       </div>
     </article>
   );

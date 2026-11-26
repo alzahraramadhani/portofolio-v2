@@ -16,17 +16,31 @@ export interface TechStackItem {
   showOnHomeProfile: boolean;
 }
 
+export interface ProjectMediaItem {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ProjectItem {
   id: string;
   slug: string;
   title: string;
   category: ProjectCategory;
   categoryBadge: string;
+  categoryDetail?: string;
   year: string;
   description: string;
   techTags: string[];
+  technologies?: string[];
   thumbnailUrl?: string;
+  galleryImages?: ProjectMediaItem[];
   projectUrl?: string;
+  liveUrl?: string;
+  repoUrl?: string;
+  myRole: string[];
+  features: string[];
+  impact: string[];
   featured: boolean;
 }
 

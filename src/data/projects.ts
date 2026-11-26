@@ -1,4 +1,4 @@
-import { ProjectItem } from "@/types/portfolio";
+import { ProjectCategory, ProjectItem } from "@/types/portfolio";
 
 export const projectsList: ProjectItem[] = [
   // Page 1 (First 6 are Featured 3x2 on Home Page; all 6 match Project Page.jpg)
@@ -8,11 +8,31 @@ export const projectsList: ProjectItem[] = [
     title: "OrbitUI Design Architecture",
     category: "website",
     categoryBadge: "React Component System",
+    categoryDetail: "Web Application · React Component System",
     year: "2024",
     description:
       "An open-source, accessible component kit crafted for developer tools. Contains 34+ keyboard-accessible primitives.",
     techTags: ["React", "Tailwind", "Framer"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Figma"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Architected 34+ reusable, keyboard-accessible React primitives with strict TypeScript types.",
+      "Defined dark-mode design tokens and spacing guidelines in Figma prior to component implementation.",
+      "Implemented focus management, ARIA attributes, and automated unit tests for interactive components.",
+    ],
+    features: [
+      "34+ modular UI primitives including dialogs, command palettes, tooltips, and tabs.",
+      "Zero-runtime CSS utility styling powered by Tailwind CSS and class-variance-authority.",
+      "Full keyboard navigation and screen-reader accessibility compliance out of the box.",
+      "Interactive documentation playground with live component previews and copyable snippets.",
+    ],
+    impact: [
+      "Reduced frontend UI assembly time across internal web projects by over 45%.",
+      "Achieved 100% Lighthouse Accessibility scores across core component showcase pages.",
+      "Adopted as the baseline design architecture for multiple rapid-prototyping sprints.",
+    ],
     featured: true,
   },
   {
@@ -21,11 +41,31 @@ export const projectsList: ProjectItem[] = [
     title: "Zenith Telemetry Console",
     category: "website",
     categoryBadge: "Developer Tools",
+    categoryDetail: "Web Application · Developer Tools",
     year: "2024",
     description:
       "Lightweight in-browser telemetry inspector for Next.js applications with zero external dependencies and sub-millisecond event.",
     techTags: ["TypeScript", "WebSockets", "Next.js"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Vite"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Designed and built the real-time event streaming dashboard UI using Next.js and TypeScript.",
+      "Engineered lightweight WebSocket client listeners with low memory overhead in the browser.",
+      "Structured trace filtering, timeline inspection, and JSON payload formatting views.",
+    ],
+    features: [
+      "Live WebSocket event stream inspector with sub-millisecond latency rendering.",
+      "Multi-criteria filtering by event severity, route, and execution duration.",
+      "Expandable request/response payload viewer with instant copy-to-clipboard actions.",
+      "Dark-first minimalist developer console layout optimized for multi-monitor setups.",
+    ],
+    impact: [
+      "Cut local API and route-rendering debugging time in half during fullstack development.",
+      "Eliminated reliance on heavy external APM dashboards for local staging checks.",
+      "Maintained smooth 60fps UI scrolling even under bursts of 500+ concurrent telemetry logs.",
+    ],
     featured: true,
   },
   {
@@ -34,11 +74,31 @@ export const projectsList: ProjectItem[] = [
     title: "Lumina Habit & Wellness App",
     category: "mobile",
     categoryBadge: "Mobile First & Figma",
+    categoryDetail: "Mobile Application · Habit & Wellness",
     year: "2024",
     description:
       "End-to-end Figma prototype converted to a performant React PWA with offline caching and localized state persistence.",
     techTags: ["Figma", "PWA", "Tailwind"],
+    technologies: ["React", "Tailwind CSS", "TypeScript", "Vite", "Figma"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Crafted the end-to-end user flows, wireframes, and high-fidelity mobile UI screens in Figma.",
+      "Converted the prototype into an installable Progressive Web App with offline-first persistence.",
+      "Implemented streak tracking logic, daily reminder views, and responsive touch gestures.",
+    ],
+    features: [
+      "Offline-ready habit check-in system backed by local storage synchronization.",
+      "Visual weekly consistency rings and customizable daily wellness routines.",
+      "Installable mobile experience with smooth bottom-sheet navigation and dark theme.",
+      "Lightweight bundle size engineered with Vite for instant cold-start loading.",
+    ],
+    impact: [
+      "Validated seamless Figma-to-production handoff across 18 mobile screens.",
+      "Achieved instant offline availability without requiring an external backend server.",
+      "Delivered a sub-1-second First Contentful Paint on mid-range mobile devices.",
+    ],
     featured: true,
   },
   {
@@ -47,11 +107,31 @@ export const projectsList: ProjectItem[] = [
     title: "DevPulse Documentation Core",
     category: "website",
     categoryBadge: "Static Site Generator",
+    categoryDetail: "Web Application · Documentation Engine",
     year: "2025",
     description:
       "MDX-driven knowledge base and portfolio starter featuring automated dark mode styling and zero configuration search.",
     techTags: ["Next.js", "MDX", "Lucide"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI", "GitHub"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Built the static MDX content pipeline and automatic table-of-contents generator.",
+      "Designed the three-column documentation reader layout with clean typographic hierarchy.",
+      "Integrated zero-config client-side fuzzy search across markdown headings and tags.",
+    ],
+    features: [
+      "File-system-based MDX routing with syntax-highlighted code blocks and callout alerts.",
+      "Instant keyboard-triggered command search modal (`Ctrl + K`) across all docs.",
+      "Sticky on-page heading outline synchronized with active scroll position.",
+      "Pre-configured SEO metadata and OpenGraph generation per documentation page.",
+    ],
+    impact: [
+      "Enabled instant publishing of technical guides directly from Markdown files in Git.",
+      "Achieved 99+ Lighthouse Performance and SEO scores across static documentation routes.",
+      "Streamlined onboarding documentation for team projects with zero database setup.",
+    ],
     featured: true,
   },
   {
@@ -60,11 +140,30 @@ export const projectsList: ProjectItem[] = [
     title: "FinTrack Personal Ledger UI",
     category: "ui-ux",
     categoryBadge: "Design System & Prototype",
+    categoryDetail: "UI/UX Design · Design System & Prototype",
     year: "2025",
     description:
       "Comprehensive mobile banking and personal expense tracker design system with interactive micro-interaction states.",
     techTags: ["Figma", "UI/UX", "Design Tokens"],
+    technologies: ["Figma", "Tailwind CSS", "Shadcn UI"],
     projectUrl: "#",
+    liveUrl: "#",
+    myRole: [
+      "Conducted user flow mapping for personal budgeting, expense categorization, and savings goals.",
+      "Created a scalable Figma component library using variables for typography, spacing, and dark surfaces.",
+      "Built interactive clickable prototypes demonstrating transaction logging and analytics transitions.",
+    ],
+    features: [
+      "Multi-account balance overview cards with clear spending vs. budget visual indicators.",
+      "Quick-entry expense flow designed to log daily transactions in under three taps.",
+      "Modular chart components for monthly cashflow breakdown and category insights.",
+      "Complete design token specification ready for Tailwind CSS implementation.",
+    ],
+    impact: [
+      "Reduced design-to-developer handoff ambiguity through standardized Figma variables.",
+      "Improved prototype task completion clarity during peer usability walkthroughs.",
+      "Established a reusable fintech UI kit adaptable to both mobile and web dashboards.",
+    ],
     featured: true,
   },
   {
@@ -73,11 +172,31 @@ export const projectsList: ProjectItem[] = [
     title: "EduSync Campus Portal",
     category: "website",
     categoryBadge: "Fullstack Web App",
+    categoryDetail: "Web Application · Fullstack Campus Platform",
     year: "2025",
     description:
       "Academic scheduling and student collaboration platform engineered with role-based access control and real-time notifications.",
     techTags: ["Laravel", "PHP", "PostgreSQL"],
+    technologies: ["Laravel", "PHP", "PostgreSQL", "SQL", "Tailwind CSS", "Git"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Designed relational PostgreSQL schemas for courses, student groups, schedules, and announcements.",
+      "Implemented role-based authentication and RESTful backend endpoints using PHP & Laravel.",
+      "Built responsive schedule views and announcement dashboards with Tailwind CSS.",
+    ],
+    features: [
+      "Role-based access control separating student, lecturer, and coordinator permissions.",
+      "Conflict-free class and organization room scheduling calendar.",
+      "Automated announcement feeds and assignment deadline notifications.",
+      "Normalized PostgreSQL indexing for fast queries across academic semesters.",
+    ],
+    impact: [
+      "Centralized fragmented campus schedules and organization notices into one unified portal.",
+      "Eliminated manual spreadsheet tracking for student group coordination.",
+      "Provided clean API documentation enabling straightforward future mobile integration.",
+    ],
     featured: true,
   },
 
@@ -88,11 +207,31 @@ export const projectsList: ProjectItem[] = [
     title: "KopiMalang Order Companion",
     category: "mobile",
     categoryBadge: "Cross-Platform App",
+    categoryDetail: "Mobile Application · Cross-Platform Ordering",
     year: "2025",
     description:
       "Flutter-based mobile ordering and loyalty app for local specialty coffee shops with live order status tracking.",
     techTags: ["Flutter", "Dart", "Supabase"],
+    technologies: ["Flutter", "Dart", "Supabase", "PostgreSQL", "Figma"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Built cross-platform Android & iOS screens using Flutter and Dart.",
+      "Integrated Supabase Auth and real-time database listeners for live order status updates.",
+      "Designed custom drink customization sheets and digital loyalty stamp cards.",
+    ],
+    features: [
+      "Real-time barista order progress tracker from brew queue to pickup ready.",
+      "Flexible beverage customization (sugar level, ice, milk options, and add-ons).",
+      "Integrated digital loyalty points and redeemable voucher wallet.",
+      "Fast menu browsing with category chips and favorite order reordering.",
+    ],
+    impact: [
+      "Streamlined counter queue bottlenecks by supporting pre-pickup mobile ordering.",
+      "Demonstrated real-time state synchronization across customer and barista views.",
+      "Achieved consistent 60fps list animations across Android test devices.",
+    ],
     featured: false,
   },
   {
@@ -101,11 +240,30 @@ export const projectsList: ProjectItem[] = [
     title: "Pulse Design Kit v2",
     category: "ui-ux",
     categoryBadge: "Mobile & Web UI Kit",
+    categoryDetail: "UI/UX Design · Mobile & Web UI Kit",
     year: "2025",
     description:
       "Dark-mode glassmorphism component library in Figma tailored for modern developer dashboards and SaaS landing pages.",
     techTags: ["Figma", "Shadcn UI", "Tailwind"],
+    technologies: ["Figma", "Shadcn UI", "Tailwind CSS"],
     projectUrl: "#",
+    liveUrl: "#",
+    myRole: [
+      "Curated dark-surface elevation rules, subtle border opacities, and ambient radial glow tokens.",
+      "Designed 40+ responsive web and mobile templates matching Shadcn UI component anatomy.",
+      "Documented typography scales and contrast guidelines for WCAG AA legibility.",
+    ],
+    features: [
+      "Cohesive dark-mode glassmorphism cards, navigation pills, and metric widgets.",
+      "Responsive auto-layout frames spanning desktop (`1440px`) down to mobile (`375px`).",
+      "Ready-to-use SaaS pricing tables, hero headers, and developer profile layouts.",
+      "Direct component naming parity with Shadcn UI and Tailwind utility classes.",
+    ],
+    impact: [
+      "Accelerated visual prototyping for multiple portfolio and SaaS concepts.",
+      "Ensured consistent contrast and spacing across dark-mode interfaces.",
+      "Simplified frontend translation by aligning Figma tokens 1:1 with CSS variables.",
+    ],
     featured: false,
   },
   {
@@ -114,11 +272,31 @@ export const projectsList: ProjectItem[] = [
     title: "VeloCash POS Dashboard",
     category: "website",
     categoryBadge: "Enterprise Web App",
+    categoryDetail: "Web Application · Enterprise POS Analytics",
     year: "2025",
     description:
       "Point-of-sale analytics dashboard with inventory forecasting, cashier shift logs, and instant CSV/PDF reporting.",
     techTags: ["Next.js", "TypeScript", "Supabase"],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Developed the fullstack analytics dashboard using Next.js App Router and TypeScript.",
+      "Modeled Supabase PostgreSQL tables for SKU inventory, daily transactions, and cashier shifts.",
+      "Built CSV export utilities and print-friendly daily closing summary reports.",
+    ],
+    features: [
+      "Real-time daily revenue KPIs, top-selling product rankings, and low-stock alerts.",
+      "Cashier shift reconciliation logs tracking opening/closing drawer balances.",
+      "Filterable transaction ledger with one-click CSV and PDF report generation.",
+      "Fast keyboard-friendly product search and SKU lookup interface.",
+    ],
+    impact: [
+      "Reduced end-of-day shift closing reconciliation from 30 minutes to under 5 minutes.",
+      "Prevented stockouts on high-turnover items via automated threshold alerts.",
+      "Provided business owners with clear daily margin visibility from any browser.",
+    ],
     featured: false,
   },
   {
@@ -127,11 +305,31 @@ export const projectsList: ProjectItem[] = [
     title: "NutriPlan Daily Tracker",
     category: "mobile",
     categoryBadge: "Health & Fitness Mobile",
+    categoryDetail: "Mobile Application · Health & Nutrition",
     year: "2025",
     description:
       "Cross-platform nutrition and meal planner crafted with Flutter, custom chart animations, and local SQLite sync.",
     techTags: ["Flutter", "Dart", "SQL"],
+    technologies: ["Flutter", "Dart", "SQL", "Figma"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Implemented local relational SQLite storage for offline meal logs and custom food entries.",
+      "Built animated macro-nutrient progress charts and weekly calorie summaries in Flutter.",
+      "Crafted clean onboarding steps for calculating daily nutritional targets.",
+    ],
+    features: [
+      "Offline-first meal logging across breakfast, lunch, dinner, and snacks.",
+      "Interactive macro breakdown charts tracking protein, carbs, and healthy fats.",
+      "Custom meal template saving for quick one-tap daily repetition.",
+      "Clean dark and high-contrast typography optimized for quick daily check-ins.",
+    ],
+    impact: [
+      "Delivered reliable zero-latency meal logging even without an internet connection.",
+      "Demonstrated clean state separation and local SQL querying inside Flutter.",
+      "Simplified daily nutritional monitoring into a distraction-free mobile workflow.",
+    ],
     featured: false,
   },
   {
@@ -140,11 +338,31 @@ export const projectsList: ProjectItem[] = [
     title: "EcoBottle Smart Hydration",
     category: "mobile",
     categoryBadge: "IoT & Mobile Companion",
+    categoryDetail: "Mobile Application · Sustainability & Hydration",
     year: "2025",
     description:
       "Mobile companion app for tracking daily hydration goals, bottle refill stations on campus, and sustainability milestones.",
     techTags: ["Flutter", "Dart", "Supabase"],
+    technologies: ["Flutter", "Dart", "Supabase", "PostgreSQL", "Git"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Developed the Flutter mobile interface for hydration logging and campus refill discovery.",
+      "Connected Supabase backend tables to track single-use plastic bottles saved over time.",
+      "Collaborated on milestone badge mechanics to encourage consistent daily habits.",
+    ],
+    features: [
+      "One-tap water intake tracker with adaptive daily hydration targets.",
+      "Campus refill station locator highlighting nearby filtered water points.",
+      "Sustainability impact counter estimating plastic bottles and CO2 saved.",
+      "Achievement milestones and weekly hydration summary cards.",
+    ],
+    impact: [
+      "Encouraged eco-friendly refill habits across student community pilot testers.",
+      "Combined clean mobile UX with real-time Supabase leaderboard/milestone syncing.",
+      "Maintained modular Flutter widget architecture for rapid feature iteration.",
+    ],
     featured: false,
   },
   {
@@ -153,11 +371,30 @@ export const projectsList: ProjectItem[] = [
     title: "Spatiom Spatial UI Kit",
     category: "ui-ux",
     categoryBadge: "Spatial Interface Design",
+    categoryDetail: "UI/UX Design · Spatial Interface System",
     year: "2025",
     description:
       "High-contrast spatial dashboard and multi-window productivity interface prototype crafted with modular Figma tokens.",
     techTags: ["Figma", "Design System", "Prototyping"],
+    technologies: ["Figma", "Tailwind CSS", "React"],
     projectUrl: "#",
+    liveUrl: "#",
+    myRole: [
+      "Explored depth-layered glass surfaces and spatial window hierarchy in Figma.",
+      "Built modular navigation docks, floating toolbars, and media preview panels.",
+      "Prototyped smooth multi-window focus transitions for productivity workflows.",
+    ],
+    features: [
+      "Layered frosted-glass panels with carefully calibrated contrast and specular borders.",
+      "Floating contextual control bars designed for uncluttered multi-tasking.",
+      "Reusable icon, spacing, and typography scales documented in Figma.",
+      "Interactive state variants for hover, focus, active, and minimized windows.",
+    ],
+    impact: [
+      "Served as the visual inspiration for modern floating navigation bars in web builds.",
+      "Showcased strong mastery of depth, lighting, and hierarchy in dark-mode UI.",
+      "Provided a structured reference kit for translucent dashboard layouts.",
+    ],
     featured: false,
   },
 
@@ -168,11 +405,31 @@ export const projectsList: ProjectItem[] = [
     title: "CloudVault Storage Console",
     category: "website",
     categoryBadge: "Cloud Infrastructure UI",
+    categoryDetail: "Web Application · Cloud Storage Console",
     year: "2024",
     description:
       "File management interface with drag-and-drop chunked uploads, granular permission sharing, and activity audit trails.",
     techTags: ["React", "Node.js", "Express.js"],
+    technologies: ["React", "TypeScript", "Node.js", "Express.js", "Tailwind CSS"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Built the React file explorer interface with grid/list toggles and drag-and-drop upload queue.",
+      "Implemented Express.js REST endpoints for chunked file handling and access token validation.",
+      "Created role-based link sharing modals with expiration and read/write permissions.",
+    ],
+    features: [
+      "Resumable chunked drag-and-drop uploads with real-time progress indicators.",
+      "Folder hierarchy breadcrumbs, file previews, and instant name/type search.",
+      "Granular permission sharing controls with revocable access links.",
+      "Chronological audit log tracking uploads, downloads, and permission updates.",
+    ],
+    impact: [
+      "Improved large-file upload reliability over unstable connections via chunking.",
+      "Delivered a clean cloud-drive UX without bloated third-party UI dependencies.",
+      "Demonstrated end-to-end integration between React frontend and Express.js backend.",
+    ],
     featured: false,
   },
   {
@@ -181,11 +438,31 @@ export const projectsList: ProjectItem[] = [
     title: "Eventify Campus Pass",
     category: "mobile",
     categoryBadge: "Event Ticketing App",
+    categoryDetail: "Mobile Application · Event Ticketing",
     year: "2024",
     description:
       "QR-based student seminar and workshop ticketing mobile app built for rapid check-in and digital certificate issuance.",
     techTags: ["Flutter", "Dart", "PostgreSQL"],
+    technologies: ["Flutter", "Dart", "PostgreSQL", "Node.js", "Express.js"],
     projectUrl: "#",
+    liveUrl: "#",
+    repoUrl: "#",
+    myRole: [
+      "Developed attendee ticket wallet and organizer QR check-in scanner views in Flutter.",
+      "Built Express.js + PostgreSQL endpoints to verify ticket uniqueness and record attendance.",
+      "Automated digital certificate unlocking immediately after event check-in verification.",
+    ],
+    features: [
+      "Instant QR ticket generation and offline pass caching for smooth venue entry.",
+      "Organizer scanner mode validating attendee registrations in under a second.",
+      "Centralized campus event discovery feed with seat availability badges.",
+      "Automated post-event digital certificate access inside the user profile.",
+    ],
+    impact: [
+      "Cut seminar registration desk check-in queues significantly compared to manual lists.",
+      "Prevented duplicate ticket check-ins through atomic PostgreSQL status updates.",
+      "Eliminated manual certificate distribution delays after campus workshops.",
+    ],
     featured: false,
   },
   {
@@ -194,11 +471,45 @@ export const projectsList: ProjectItem[] = [
     title: "Aurora Workspace Concept",
     category: "ui-ux",
     categoryBadge: "Product Design Case Study",
+    categoryDetail: "UI/UX Design · Product Design Case Study",
     year: "2024",
     description:
       "End-to-end UX research and high-fidelity interface design for a distraction-free markdown note-taking environment.",
     techTags: ["Figma", "Prototyping", "UI/UX"],
+    technologies: ["Figma", "Next.js", "Tailwind CSS"],
     projectUrl: "#",
+    liveUrl: "#",
+    myRole: [
+      "Mapped student and developer note-taking pain points into streamlined information architecture.",
+      "Designed minimalist editor, backlink graph, and quick-switcher flows in Figma.",
+      "Conducted iterative prototype reviews focusing on reading comfort and keyboard ergonomics.",
+    ],
+    features: [
+      "Collapsible sidebar and focus-mode canvas removing visual clutter while writing.",
+      "Bidirectional note linking preview cards and tag-based knowledge organization.",
+      "Command-palette navigation concept supporting instant note creation and switching.",
+      "Balanced line lengths and dark-mode contrast tuned for long reading sessions.",
+    ],
+    impact: [
+      "Produced a complete UX case study covering user personas, wireframes, and final UI.",
+      "Improved keyboard-first workflow clarity across every core editor interaction.",
+      "Created a clean design blueprint ready for React/Next.js implementation.",
+    ],
     featured: false,
   },
 ];
+
+export function getProjectBySlug(slug: string): ProjectItem | undefined {
+  return projectsList.find((project) => project.slug === slug);
+}
+
+export function getCategoryDisplayName(category: ProjectCategory): string {
+  switch (category) {
+    case "website":
+      return "Web Application";
+    case "mobile":
+      return "Mobile Application";
+    case "ui-ux":
+      return "UI/UX Design";
+  }
+}
